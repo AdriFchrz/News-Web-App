@@ -13,6 +13,15 @@ class NewsModel extends Model
 
     protected static $instance;
 
+    public static function getInstance()
+    {
+        if (is_null(self::$instance)) {
+            self::$instance = new static();
+        }
+
+        return self::$instance;
+    }
+
     public function getAllNews()
     {
         return $this->findAll();
@@ -37,16 +46,4 @@ class NewsModel extends Model
     {
         return $this->like('title', $keyword)->findAll();
     }
-
-
-    public static function getInstance()
-    {
-        if (is_null(self::$instance)) {
-            self::$instance = new static();
-        }
-
-        return self::$instance;
-    }
-
-
 }
