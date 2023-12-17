@@ -17,6 +17,7 @@ class HomeController extends BaseController
     {
         $data['news'] = $this->newsModel->getAllNews();
         echo view('layout/header');
+        echo view('layout/navbar');
         echo view('home', $data);
     }
 
@@ -25,6 +26,7 @@ class HomeController extends BaseController
         $data['news'] = $this->newsModel->getNewsByCategory($category_id);
 
         echo view('layout/header');
+        echo view('layout/navbar');
         echo view('category', $data);
     }
 
@@ -34,6 +36,7 @@ class HomeController extends BaseController
         $data['news'] = $this->newsModel->searchNewsByTitle($keyword);
 
         echo view('layout/header');
+        echo view('layout/navbar');
 
         if (!empty($data['news'])) {
             echo view('search', $data);
