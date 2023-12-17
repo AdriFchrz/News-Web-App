@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\NewsModel;  // Pastikan use statement ini benar
 use CodeIgniter\Controller;
+use function PHPUnit\Framework\exactly;
 
 class NewsController extends Controller
 {
@@ -18,6 +19,7 @@ class NewsController extends Controller
         }
 
         echo view('layout/header');
+        echo view('layout/navbar');
         echo view('news', $data);
     }
 
@@ -27,8 +29,8 @@ class NewsController extends Controller
         if ($this->request->getMethod() === 'post') {
             // Validasi form input, pastikan Anda menyesuaikannya dengan kebutuhan Anda
             $validationRules = [
-                'title' => 'required|min_length[5]|max_length[255]',
-                'content' => 'required|min_length[10]',
+                'title' => 'required', //|min_length[5]|max_length[255]
+                'content' => 'required', //|min_length[10]
                 'category_id' => 'required|integer',
                 'author_id' => 'required|integer',
                 'created_at' => 'valid_date[Y-m-d]',
@@ -59,6 +61,17 @@ class NewsController extends Controller
         }
 
         echo view('layout/header');
+        echo view('layout/navbar');
         echo view('inputberita');
     }
+
+    public function delete($id)
+    {
+        $newsModel = new NewsModel();
+        $newsModel->delete($id);
+
+        // Redirect ke halaman utama atau halaman lain setelah penghapusan
+        return redirect()->to('/');
+    }
+
 }

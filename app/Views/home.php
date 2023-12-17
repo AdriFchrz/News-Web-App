@@ -9,6 +9,9 @@
                         <a href="<?= site_url('news/detail/' . $article['id']) ?>" class="text-primary">
                             <h5 class="card-title"><?= $article['title']?></h5>
                             <p class="card-text"><?= substr($article['content'], 0, 150) ?>...</p>
+                            <form action="<?= site_url('news/delete/' . $article['id']) ?>" method="post" class="mt-2">
+                                <button type="submit" class="btn btn-danger">Hapus</button>
+                            </form>
                         </a>
                     </div>
                 </div>

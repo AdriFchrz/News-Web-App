@@ -1,3 +1,4 @@
+<a href="/" class="btn btn-primary mb-3">Kembali</a>
 <div class="container text-center">
     <p>Penulis: <?= $news['username']; ?></p>
     <p>Tanggal <?= $news['created_at']; ?></p>
@@ -6,6 +7,5 @@
     <p>Category: <a href=""><?= $news['name']; ?></a></p>
     <hr>
 </div>
-
 </body>
 </html>
