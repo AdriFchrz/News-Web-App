@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\NewsModel;
+use App\Models\UserModel;
 
 class HomeController extends BaseController
 {
@@ -20,6 +21,25 @@ class HomeController extends BaseController
         echo view('layout/navbar');
         echo view('home', $data);
     }
+
+    public function users()
+    {
+        $userModel = new UserModel();
+        $data['users'] = $userModel->getAllUsers();
+        echo view('layout/header');
+        echo view('layout/navbar');
+        echo view('users', $data);
+    }
+
+    public function deleteUser($id)
+    {
+        $userModel = new UserModel();
+        $userModel->deleteUser($id);
+
+        // Redirect atau lakukan aksi sesuai kebutuhan setelah penghapusan
+        return redirect()->to('/users');
+    }
+
 
     public function newsByCategory($category_id)
     {

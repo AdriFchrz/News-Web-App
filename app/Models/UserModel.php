@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModels extends Model
+class UserModel extends Model
 {
     protected $table = 'users';
     protected $primaryKey = 'id';
@@ -14,4 +14,10 @@ class UserModels extends Model
     {
         return $this->findAll();
     }
+
+    public function deleteUser($id)
+    {
+        $this->where('id', $id)->delete();
+    }
+
 }

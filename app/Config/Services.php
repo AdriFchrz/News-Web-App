@@ -2,6 +2,7 @@
 
 namespace Config;
 
+use App\Models\NewsModel;
 use CodeIgniter\Config\BaseService;
 
 /**
@@ -19,6 +20,10 @@ use CodeIgniter\Config\BaseService;
  */
 class Services extends BaseService
 {
+    public static function newsModel(bool $getShared = true)
+    {
+        return $getShared ? static::getSharedInstance('newsModel') : new NewsModel();
+    }
     /*
      * public static function example($getShared = true)
      * {

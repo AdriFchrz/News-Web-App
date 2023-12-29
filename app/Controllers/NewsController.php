@@ -14,7 +14,6 @@ class NewsController extends Controller
         $data['news'] = $newsModel->getNewsWithAuthorAndCategory($id);
 
         if ($data['news'] === null) {
-            // Atur respons jika berita dengan ID tertentu tidak ditemukan
             return "Berita tidak ditemukan.";
         }
 
@@ -27,7 +26,6 @@ class NewsController extends Controller
     {
         helper('form');
         if ($this->request->getMethod() === 'post') {
-            // Validasi form input, pastikan Anda menyesuaikannya dengan kebutuhan Anda
             $validationRules = [
                 'title' => 'required', //|min_length[5]|max_length[255]
                 'content' => 'required', //|min_length[10]
@@ -65,6 +63,41 @@ class NewsController extends Controller
         echo view('inputberita');
     }
 
+    public function update($id)
+    {
+        $model = new NewsModel();
+
+        if ($this->request->getMethod() === 'post') {
+            // Validation rules may vary based on your requirements
+            $rules = [
+                'title'   => 'required',
+                'content' => 'required',
+            ];
+
+            if (!$this->validate($rules)) {
+                return redirect()->to("auth/update/$id")->withInput()->with('validation', $this->validator);
+            }
+
+            // Update the news article
+            $data = [
+                'title'   => $this->request->getPost('title'),
+                'content' => $this->request->getPost('content'),
+            ];
+
+            $model->update($id, $data);
+
+            return redirect()->to('/');
+        }
+
+        // Fetch the article details for the update form
+        $data['article'] = $model->find($id);
+
+        echo view('layout/header');
+        echo view('layout/navbar');
+        echo view('updateberita', $data);
+    }
+
+
     public function delete($id)
     {
         $newsModel = new NewsModel();
@@ -73,5 +106,4 @@ class NewsController extends Controller
         // Redirect ke halaman utama atau halaman lain setelah penghapusan
         return redirect()->to('/');
     }
-
 }

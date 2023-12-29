@@ -1,0 +1,47 @@
+[33mcommit c5490fd904e95dcadc1ca12c9a3dfaa033ff364c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Mon Dec 18 01:01:28 2023 +0700
+
+    create update and delete news
+
+[33mcommit 282039a1331e1b5a07b2223e24e49cbc4c685f9e[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Sun Dec 17 19:16:38 2023 +0700
+
+    add insert function
+
+[33mcommit 8c972919ab13c0645806fdbeac9c43fb6cb45362[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Sat Dec 16 19:31:42 2023 +0700
+
+    update function
+
+[33mcommit 92e8cf87c9e48dfeb1b5cbdcdee2d1dcc7f6f424[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Sat Dec 16 19:30:13 2023 +0700
+
+    update NewsModel.php with some create some function: getNewsWithAuthorAndCategory, getNewsByCateogry, searchNewsByTitle, getInstance
+
+[33mcommit 1be94dfe3868f0b9cf3dcb2dbc2c349d0ae8cfe7[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Sat Dec 16 19:28:04 2023 +0700
+
+    update routes
+
+[33mcommit bf1b11e8cdf246d14385a0471f1b228e1165a8de[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Sat Dec 16 19:27:27 2023 +0700
+
+    update HomeController with search, category, and singleton object
+
+[33mcommit 350979d24abb6d7eedb156d38c9f2363b638168e[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Sat Dec 16 19:25:51 2023 +0700
+
+    create view category, search, search not found, and update home
+
+[33mcommit 819b073edebc9e0ab63805d9534787beb117e715[m
+Author: 314dhan <ramadhan25321@gmail.com>
+Date:   Sat Dec 16 11:14:58 2023 +0700
+
+    create git and view git

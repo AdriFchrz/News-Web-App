@@ -1,3 +1,7 @@
+<?php
+$session = session();
+$role = $session->get('role');
+?>
 <nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
     <div class="container container-fluid">
         <a class="navbar-brand" href="/">News Media</a>
@@ -17,9 +21,13 @@
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/1') ?>">Teknologi</a></li>
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/2') ?>">Olahraga</a></li>
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/3') ?>">Otomotif</a></li>
-
                     </ul>
                 </li>
+                <?php if ($role == 'admin'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/users">Users</a>
+                    </li>
+                <?php endif; ?>
             </ul>
             <form class="d-flex" action="<?= site_url('search') ?>" method="post" role="search">
                 <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">

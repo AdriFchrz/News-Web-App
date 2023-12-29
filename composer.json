@@ -9,6 +9,7 @@
         "source": "https://github.com/codeigniter4/CodeIgniter4",
         "slack": "https://codeigniterchat.slack.com"
     },
+    "prefer-stable": true,
     "require": {
         "php": "^7.4 || ^8.0",
         "codeigniter4/framework": "^4.0"

@@ -1,10 +1,8 @@
-<!-- views/create_news.php -->
-
 <div class="container mt-3">
     <a href="/" class="btn btn-primary">Kembali</a>
     <h2>Create News</h2>
 
-    <?php echo form_open('news/create'); ?>
+    <?php echo form_open('auth/create'); ?>
 
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
@@ -24,7 +22,8 @@
             <option value="3">Otomotif</option>
         </select>
     </div>
-    <input type="hidden" id="author_id" name="author_id" value="1">
+    <?php $session = session();$author_id = $session->get('user_id'); ?>
+    <input type="hidden" id="author_id" name="author_id" value="<?= $author_id ?>">
     <input type="hidden" id="created_at" name="created_at" value="<?= date('Y-m-d') ?>">
     <input type="hidden" id="updated_at" name="updated_at" value="<?= date('Y-m-d') ?>">
     <button type="submit" class="btn btn-success">Buat Berita</button>
