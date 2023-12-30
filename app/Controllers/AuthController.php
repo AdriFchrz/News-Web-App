@@ -35,7 +35,7 @@ class AuthController extends Controller
                 // Redirect sesuai peran
                 if ($user['role'] === 'admin') {
                     return redirect()->to('/');
-                } elseif ($user['role'] === 'user') {
+                } else if ($user['role'] === 'user') {
                     return redirect()->to('/');
                 } else {
                     // Peran lainnya, sesuaikan dengan kebutuhan
