@@ -1,7 +1,3 @@
-<!-- search_result.php -->
-
-<!-- Sesuaikan dengan kebutuhan tata letak dan desain Anda -->
-
 <div class="row">
     <?php foreach ($news as $article): ?>
         <div class="col mb-3">
@@ -12,7 +8,11 @@
                         <h5 class="card-title"><?= $article['title'] ?></h5>
                     </a>
                     <p class="card-text"><?= substr($article['content'], 0, 150) ?>...</p>
-                    <a href="<?= site_url('news/detail/' . $article['id']) ?>" class="btn btn-primary">Baca</a>
+                    <?php if (isset($user) && $user['role'] == 'admin'): ?>
+                        <form action="<?= site_url('auth/delete/' . $article['id']) ?>" method="post" class="mt-2">
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </form>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

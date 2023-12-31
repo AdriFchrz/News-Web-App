@@ -23,6 +23,11 @@ $role = $session->get('role');
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/3') ?>">Otomotif</a></li>
                     </ul>
                 </li>
+                <?php if ($role == 'author'): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/manajement">Manajemen Berita</a>
+                    </li>
+                <?php endif; ?>
                 <?php if ($role == 'admin'): ?>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/users">Users</a>

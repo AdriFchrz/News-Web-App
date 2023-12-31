@@ -22,6 +22,24 @@ class HomeController extends BaseController
         echo view('home', $data);
     }
 
+    // HomeController.php
+
+    public function indexAuthor()
+    {
+        $session = session();
+        $authorId = $session->get('user_id');
+
+        $userModel = new UserModel();
+        $user = $userModel->find($authorId);
+
+        $data['user'] = $user;
+        $data['news'] = $this->newsModel->getAllNewsByAuthor($authorId);
+
+        echo view('layout/header');
+        echo view('layout/navbar');
+        echo view('manajemenberita', $data);
+    }
+
     public function users()
     {
         $userModel = new UserModel();
@@ -55,6 +73,16 @@ class HomeController extends BaseController
         $keyword = $this->request->getVar('search');
         $data['news'] = $this->newsModel->searchNewsByTitle($keyword);
 
+        // Ambil informasi sesi pengguna
+        $session = session();
+        $user_id = $session->get('user_id');
+
+        // Jika user_id tersedia, ambil data pengguna
+        if ($user_id) {
+            $userModel = new UserModel();
+            $data['user'] = $userModel->find($user_id);
+        }
+
         echo view('layout/header');
         echo view('layout/navbar');
 
@@ -64,5 +92,6 @@ class HomeController extends BaseController
             echo view('not_found');
         }
     }
+
 }
 

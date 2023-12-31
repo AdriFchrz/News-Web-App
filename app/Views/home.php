@@ -24,15 +24,10 @@
                         <a href="<?= site_url('news/detail/' . $article['id']) ?>" class="text-primary">
                             <h5 class="card-title"><?= $article['title']?></h5>
                             <p class="card-text"><?= substr($article['content'], 0, 150) ?>...</p>
-
                             <?php if ($user && $user['role'] == 'admin') : ?>
                                 <form action="<?= site_url('auth/delete/' . $article['id']) ?>" method="post" class="mt-2">
                                     <button type="submit" class="btn btn-danger">Hapus</button>
                                 </form>
-                            <?php endif; ?>
-
-                            <?php if ($user && $user['role'] == 'author') : ?>
-                                <a href="<?= site_url('auth/update/' . $article['id']) ?>" class="btn btn-info mt-2">Update</a>
                             <?php endif; ?>
                         </a>
                     </div>

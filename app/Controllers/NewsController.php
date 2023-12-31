@@ -2,21 +2,22 @@
 
 namespace App\Controllers;
 
-use App\Models\NewsModel;  // Pastikan use statement ini benar
+use App\Models\CommentModel;
+use App\Models\NewsModel;
 use CodeIgniter\Controller;
-use function PHPUnit\Framework\exactly;
 
 class NewsController extends Controller
 {
     public function detail($id)
     {
         $newsModel = new NewsModel();
+        $commentModel = new CommentModel();
         $data['news'] = $newsModel->getNewsWithAuthorAndCategory($id);
 
         if ($data['news'] === null) {
             return "Berita tidak ditemukan.";
         }
-
+        $data['comments'] = $commentModel->getCommentsByNewsId($id);
         echo view('layout/header');
         echo view('layout/navbar');
         echo view('news', $data);
@@ -70,8 +71,9 @@ class NewsController extends Controller
         if ($this->request->getMethod() === 'post') {
             // Validation rules may vary based on your requirements
             $rules = [
-                'title'   => 'required',
-                'content' => 'required',
+                'title'       => 'required',
+                'content'     => 'required',
+                'category_id' => 'required|in_list[1,2,3]', // Adjust validation for category_id
             ];
 
             if (!$this->validate($rules)) {
@@ -80,13 +82,14 @@ class NewsController extends Controller
 
             // Update the news article
             $data = [
-                'title'   => $this->request->getPost('title'),
-                'content' => $this->request->getPost('content'),
+                'title'       => $this->request->getPost('title'),
+                'content'     => $this->request->getPost('content'),
+                'category_id' => $this->request->getPost('category_id'),
             ];
 
             $model->update($id, $data);
 
-            return redirect()->to('/');
+            return redirect()->to('/manajement');
         }
 
         // Fetch the article details for the update form
@@ -96,6 +99,7 @@ class NewsController extends Controller
         echo view('layout/navbar');
         echo view('updateberita', $data);
     }
+
 
 
     public function delete($id)

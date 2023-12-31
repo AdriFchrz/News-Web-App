@@ -27,6 +27,13 @@ class NewsModel extends Model
         return $this->findAll();
     }
 
+    // NewsModel.php
+    public function getAllNewsByAuthor($authorId)
+    {
+        return $this->where('author_id', $authorId)->findAll();
+    }
+
+
     public function getNewsWithAuthorAndCategory($id = null)
     {
         return $this->join('users', 'users.id = news.author_id')
@@ -39,8 +46,6 @@ class NewsModel extends Model
     {
         return $this->where('category_id', $category_id)->findAll();
     }
-
-    // NewsModel.php
 
     public function searchNewsByTitle($keyword)
     {
