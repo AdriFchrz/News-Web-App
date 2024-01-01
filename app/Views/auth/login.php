@@ -9,12 +9,12 @@
 </head>
 <body>
 <div class="container mt-5">
+    <a href="/" class="btn btn-info">Ke Beranda</a>
     <div class="card mx-auto" style="max-width: 400px;">
         <div class="card-header">
             <h5 class="card-title">Login</h5>
         </div>
         <div class="card-body">
-            <!-- Your login form here -->
             <?php if (session()->has('error')) : ?>
                 <div class="alert alert-danger" role="alert">
                     <?= session('error') ?>

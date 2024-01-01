@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">Isi Berita</label>
-            <textarea class="form-control" id="content" name="content"><?= old('content', $article['content']) ?></textarea>
+            <textarea rows="4" class="form-control" id="content" name="content"><?= old('content', $article['content']) ?></textarea>
         </div>
         <div class="mb-3">
             <label for="category_id" class="form-label">Category</label>
@@ -20,8 +20,8 @@
                 <option value="1" <?= $article['category_id'] == 1 ? 'selected' : '' ?>>Technology</option>
                 <option value="2" <?= $article['category_id'] == 2 ? 'selected' : '' ?>>Olahraga</option>
                 <option value="3" <?= $article['category_id'] == 3 ? 'selected' : '' ?>>Otomotif</option>
-                <option value="2" <?= $article['category_id'] == 4 ? 'selected' : '' ?>>Kesehatan</option>
-                <option value="3" <?= $article['category_id'] == 5 ? 'selected' : '' ?>>Keuangan</option>
+                <option value="4" <?= $article['category_id'] == 4 ? 'selected' : '' ?>>Kesehatan</option>
+                <option value="5" <?= $article['category_id'] == 5 ? 'selected' : '' ?>>Keuangan</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update Berita</button>
