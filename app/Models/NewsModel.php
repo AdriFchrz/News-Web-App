@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Models;
 
 use CodeIgniter\Model;
@@ -10,7 +9,6 @@ class NewsModel extends Model
     protected $table = 'news';
     protected $primaryKey = 'id';
     protected $allowedFields = ['title', 'content', 'category_id', 'author_id', 'image', 'created_at', 'updated_at'];
-
     protected static $instance;
 
     public static function getInstance()
@@ -22,9 +20,14 @@ class NewsModel extends Model
         return self::$instance;
     }
 
-    public function getAllNews()
+    public function getOtherArticles($mainArticleId)
     {
-        return $this->orderBy('id', 'DESC')->findAll();
+        return $this->where('id !=', $mainArticleId)->orderBy('id', 'DESC')->findAll();
+    }
+
+    public function getFirstArticle()
+    {
+        return $this->orderBy('id', 'DESC')->first();
     }
 
     // NewsModel.php
