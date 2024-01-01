@@ -28,8 +28,8 @@ class NewsController extends Controller
         helper('form');
         if ($this->request->getMethod() === 'post') {
             $validationRules = [
-                'title' => 'required', //|min_length[5]|max_length[255]
-                'content' => 'required', //|min_length[10]
+                'title' => 'required',
+                'content' => 'required',
                 'category_id' => 'required|integer',
                 'author_id' => 'required|integer',
                 'created_at' => 'valid_date[Y-m-d]',
@@ -69,18 +69,16 @@ class NewsController extends Controller
         $model = new NewsModel();
 
         if ($this->request->getMethod() === 'post') {
-            // Validation rules may vary based on your requirements
             $rules = [
                 'title'       => 'required',
                 'content'     => 'required',
-                'category_id' => 'required|in_list[1,2,3]', // Adjust validation for category_id
+                'category_id' => 'required|integer',
             ];
 
             if (!$this->validate($rules)) {
                 return redirect()->to("auth/update/$id")->withInput()->with('validation', $this->validator);
             }
 
-            // Update the news article
             $data = [
                 'title'       => $this->request->getPost('title'),
                 'content'     => $this->request->getPost('content'),
