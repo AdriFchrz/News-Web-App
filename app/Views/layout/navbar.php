@@ -21,6 +21,8 @@ $role = $session->get('role');
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/1') ?>">Teknologi</a></li>
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/2') ?>">Olahraga</a></li>
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/3') ?>">Otomotif</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('news/by_category/4') ?>">Kesehatan</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('news/by_category/5') ?>">Keuangan</a></li>
                     </ul>
                 </li>
                 <?php if ($role == 'author'): ?>

@@ -25,13 +25,12 @@ class NewsModel extends Model
     public function getAllNews()
     {
         return $this->orderBy('id', 'DESC')->findAll();
-//        return $this->findAll();
     }
 
     // NewsModel.php
     public function getAllNewsByAuthor($authorId)
     {
-        return $this->where('author_id', $authorId)->findAll();
+        return $this->where('author_id', $authorId)->orderBy('id', 'DESC')->findAll();
     }
 
 
@@ -45,11 +44,11 @@ class NewsModel extends Model
 
     public function getNewsByCategory($category_id)
     {
-        return $this->where('category_id', $category_id)->findAll();
+        return $this->where('category_id', $category_id)->orderBy('id', 'DESC')->findAll();
     }
 
     public function searchNewsByTitle($keyword)
     {
-        return $this->like('title', $keyword)->findAll();
+        return $this->like('title', $keyword)->orderBy('id', 'DESC')->findAll();
     }
 }
