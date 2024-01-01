@@ -22,8 +22,6 @@ class HomeController extends BaseController
         echo view('home', $data);
     }
 
-    // HomeController.php
-
     public function indexAuthor()
     {
         $session = session();

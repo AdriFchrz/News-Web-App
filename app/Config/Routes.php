@@ -34,6 +34,7 @@ $routes->group('auth', function ($routes) {
     $routes->get('register', 'AuthController::register');
     $routes->post('register', 'AuthController::register');
     $routes->get('logout', 'AuthController::logout');
+    $routes->get('users', 'HomeController::users');
 });
-$routes->get('users', 'HomeController::users');
+
 $routes->get('delete/(:num)', 'HomeController::deleteUser/$1');
