@@ -99,71 +99,10 @@ class AuthController extends Controller
         return view('auth/register');
     }
 
-
-//    public function attemptLogin()
-//    {
-//        $userModel = new UserModel();
-//
-//        $login = $this->request->getPost('login'); // dapat berisi username atau email
-//        $password = $this->request->getPost('password');
-//
-//        $user = $userModel->where('username', $login)->orWhere('email', $login)->first();
-//
-//        if ($user && password_verify($password, $user['password'])) {
-//            // Login berhasil
-//            // Set data user ke sesi atau lakukan aksi sesuai kebutuhan
-//            $session = session();
-//            $session->set('user_id', $user['id']);
-//
-//            $data['news'] = $this->newsModel->getAllNews();
-//            // Redirect ke halaman setelah login
-//            return redirect()->to('/');
-//
-//        } else {
-//            // Login gagal
-//            // Tampilkan pesan kesalahan atau lakukan aksi sesuai kebutuhan
-//            return redirect()->back()->withInput()->with('error', 'Login failed. Please check your credentials.');
-//        }
-//    }
-//
-//    public function attemptRegister()
-//    {
-//        if ($this->request->getMethod() === 'post') {
-//            $userModel = new UserModel();
-//
-//            $data = [
-//                'username' => $this->request->getPost('username'),
-//                'email' => $this->request->getPost('email'),
-//                'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
-//                'role' => $this->request->getPost('role'),
-//            ];
-//
-//            // Validasi data, sesuaikan dengan kebutuhan
-//            $validationRules = [
-//                'username' => 'required|min_length[3]|max_length[255]|is_unique[users.username]',
-//                'email' => 'required|valid_email|is_unique[users.email]',
-//                'password' => 'required|min_length[5]',
-//                'role' => 'required|in_list[author,visitor]',
-//            ];
-//
-//            if ($this->validate($validationRules)) {
-//                $userModel->insert($data);
-//
-//                // Redirect ke halaman login setelah registrasi berhasil
-//                return redirect()->to('/');
-//            } else {
-//                // Registrasi gagal, tampilkan pesan error
-//                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-//            }
-//        }
-//
-//        // Jika bukan request POST, tampilkan halaman registrasi
-//        return view('auth/register');
-//    }
-
     public function logout()
     {
         session()->remove('user_id');
+        session()->remove('role'); // Hapus juga role dari sesi
         return redirect()->to('auth/login');
     }
 }
