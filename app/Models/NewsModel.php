@@ -9,7 +9,7 @@ class NewsModel extends Model
 {
     protected $table = 'news';
     protected $primaryKey = 'id';
-    protected $allowedFields = ['title', 'content', 'category_id', 'author_id', 'created_at', 'updated_at'];
+    protected $allowedFields = ['title', 'content', 'category_id', 'author_id', 'image', 'created_at', 'updated_at'];
 
     protected static $instance;
 
