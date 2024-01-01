@@ -13,8 +13,9 @@
             <br>
             <button type="submit" class="btn btn-success mt-2">Tambah Komentar</button>
         </form>
+        <hr>
     <?php endif; ?>
-    <hr>
+
     <?php if (!empty($comments)): ?>
         <h3>Komentar:</h3>
         <ul>

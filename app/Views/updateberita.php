@@ -20,6 +20,8 @@
                 <option value="1" <?= $article['category_id'] == 1 ? 'selected' : '' ?>>Technology</option>
                 <option value="2" <?= $article['category_id'] == 2 ? 'selected' : '' ?>>Olahraga</option>
                 <option value="3" <?= $article['category_id'] == 3 ? 'selected' : '' ?>>Otomotif</option>
+                <option value="2" <?= $article['category_id'] == 4 ? 'selected' : '' ?>>Kesehatan</option>
+                <option value="3" <?= $article['category_id'] == 5 ? 'selected' : '' ?>>Keuangan</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Update Berita</button>

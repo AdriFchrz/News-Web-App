@@ -20,6 +20,8 @@
             <option value="1">Technology</option>
             <option value="2">Olahraga</option>
             <option value="3">Otomotif</option>
+            <option value="4">Kesehatan</option>
+            <option value="5">Keuangan</option>
         </select>
     </div>
     <?php $session = session();$author_id = $session->get('user_id'); ?>

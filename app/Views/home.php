@@ -17,7 +17,7 @@
 
     <div class="row">
         <?php foreach ($news as $article): ?>
-            <div class="col-md-3">
+            <div class="col-md-3 mt-3">
                 <div class="card text-center container container-fluid" id="card-judul">
                     <img class="card-img-top" src="..." alt="Card image cap">
                     <div class="card-body">

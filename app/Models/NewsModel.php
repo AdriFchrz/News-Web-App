@@ -24,7 +24,8 @@ class NewsModel extends Model
 
     public function getAllNews()
     {
-        return $this->findAll();
+        return $this->orderBy('id', 'DESC')->findAll();
+//        return $this->findAll();
     }
 
     // NewsModel.php
