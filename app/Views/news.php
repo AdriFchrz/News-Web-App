@@ -1,5 +1,9 @@
 <div class="container">
 <a href="/" class="btn btn-primary mb-3">Kembali</a>
+    <br>
+    <!-- img -->
+    <img src="<?= base_url('assets/' . $news['image']); ?>" alt="News Image" class="img-fluid mx-auto d-block" width="700" height="500">
+    <!-- akhir img -->
     <p>Penulis: <?= $news['username']; ?></p>
     <p>Tanggal <?= $news['created_at']; ?></p>
     <h2><?= $news['title']; ?></h2>

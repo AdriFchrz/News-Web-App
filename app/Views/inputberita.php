@@ -1,9 +1,16 @@
 <div class="container mt-3">
     <a href="/" class="btn btn-primary">Kembali</a>
     <h2>Create News</h2>
-
-    <?php echo form_open('auth/create'); ?>
-
+    <?php if(session()->has('errors')): ?>
+        <div class="alert alert-danger">
+            <?php foreach(session('errors') as $error): ?>
+                <?= esc($error) ?><br>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    <?php echo form_open('auth/create', ['enctype' => 'multipart/form-data']); ?>
+    <label for="image" class="form-label">Image</label>
+    <input type="file" class="form-control" id="image" name="image" accept="image/*">
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" name="title" required>
@@ -26,8 +33,8 @@
     </div>
     <?php $session = session();$author_id = $session->get('user_id'); ?>
     <input type="hidden" id="author_id" name="author_id" value="<?= $author_id ?>">
-    <input type="hidden" id="created_at" name="created_at" value="<?= date('Y-m-d') ?>">
-    <input type="hidden" id="updated_at" name="updated_at" value="<?= date('Y-m-d') ?>">
+    <input type="hidden" id="created_at" name="created_at" value="<?= date('Y-m-d H:i:s') ?>">
+    <input type="hidden" id="updated_at" name="updated_at" value="<?= date('Y-m-d H:i:s') ?>">
     <button type="submit" class="btn btn-success">Buat Berita</button>
     <?php echo form_close(); ?>
 </div>

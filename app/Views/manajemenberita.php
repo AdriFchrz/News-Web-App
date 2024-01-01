@@ -13,8 +13,13 @@
                     $foundArticles = true;
                     ?>
                     <div class="col-md-3">
-                        <div class="card text-center container container-fluid" id="card-judul">
-                            <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card" id="card-judul">
+                            <?php if (!empty($article['image'])): ?>
+                                <img class="card-img-top" src="<?= base_url('assets/' . $article['image']) ?>" alt="Card image cap">
+                            <?php else: ?>
+                                <!-- Tambahkan placeholder gambar default jika tidak ada gambar -->
+                                <img class="card-img-top" src="<?= base_url('assets/placeholder.jpg') ?>" alt="Card image cap">
+                            <?php endif; ?>
                             <div class="card-body">
                                 <a href="<?= site_url('news/detail/' . $article['id']) ?>" class="text-primary">
                                     <h5 class="card-title"><?= $article['title']?></h5>

@@ -1,8 +1,5 @@
-<?php
-$session = session();
-$role = $session->get('role');
-?>
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-3">
+<?php $role = session('role'); ?>
+<nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary mb-3">
     <div class="container container-fluid">
         <a class="navbar-brand" href="/">News Media</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,7 +29,7 @@ $role = $session->get('role');
                 <?php endif; ?>
                 <?php if ($role == 'admin'): ?>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/users">Users</a>
+                        <a class="nav-link" aria-current="page" href="/auth/users">Users</a>
                     </li>
                 <?php endif; ?>
             </ul>
