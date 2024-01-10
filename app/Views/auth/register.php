@@ -9,6 +9,7 @@
 <body>
 <div class="container mt-5">
     <div class="card mx-auto" style="max-width: 400px;">
+        <a href="/" class="btn btn-info">Kembali ke Halaman Utama</a>
         <div class="card-header">
             <h5 class="card-title">Register</h5>
         </div>

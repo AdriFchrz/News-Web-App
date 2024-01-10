@@ -14,6 +14,7 @@
         <?php foreach ($news as $article): ?>
             <div class="col-md-3 mb-4">
                 <div class="card" style="width: 18rem;">
+                    <a href="<?= site_url('news/detail/' . $article['id']) ?>">
                     <?php if (!empty($article['image'])): ?>
                         <img class="card-img-top" src="<?= base_url('assets/' . $article['image']) ?>" alt="Card image cap">
                     <?php else: ?>
@@ -21,9 +22,9 @@
                         <img class="card-img-top" src="<?= base_url('assets/placeholder.jpg') ?>" alt="Card image cap">
                     <?php endif; ?>
                     <div class="card-body">
-                        <a href="<?= site_url('news/detail/' . $article['id']) ?>">
+
                             <h5 class="card-title"><?= $article['title'] ?></h5>
-                        </a>
+
                         <p class="card-text"><?= substr($article['content'], 0, 150) ?>...</p>
 
                         <?php if ($user && $user['role'] == 'admin'): ?>
@@ -32,6 +33,7 @@
                             </form>
                         <?php endif; ?>
                     </div>
+                    </a>
                 </div>
             </div>
         <?php endforeach; ?>

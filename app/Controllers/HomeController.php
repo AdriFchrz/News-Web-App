@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\NewsModel;
 use App\Models\UserModel;
+use App\Models\CommentModel;
 
 class HomeController extends BaseController
 {
@@ -16,7 +17,16 @@ class HomeController extends BaseController
 
     public function index()
     {
-        $data['news'] = $this->newsModel->getAllNews();
+        $lastArticle = $this->newsModel->getFirstArticle();
+
+        if (!empty($lastArticle)) {
+            $mainArticleId = $lastArticle['id'];
+            $data['mainArticle'] = $lastArticle;
+            $data['otherArticles'] = $this->newsModel->getOtherArticles($mainArticleId);
+        } else {
+            $data['mainArticle'] = null;
+            $data['otherArticles'] = [];
+        }
         echo view('layout/header');
         echo view('layout/navbar');
         echo view('home', $data);
@@ -50,12 +60,26 @@ class HomeController extends BaseController
     public function deleteUser($id)
     {
         $userModel = new UserModel();
+        $commentModel = new CommentModel();
+        $newsModel = new NewsModel();
+        $userData = $userModel->find($id);
+
+        if (!$userData) {
+            return redirect()->to('/auth/users');
+        }
+
+        if ($userData['role'] == 'visitor') {
+            $commentModel->where('user_id', $id)->delete();
+        }
+
+        if ($userData['role'] == 'author') {
+            $newsModel->where('author_id', $id)->delete();
+        }
+
         $userModel->deleteUser($id);
 
-        // Redirect atau lakukan aksi sesuai kebutuhan setelah penghapusan
-        return redirect()->to('/users');
+        return redirect()->to('/auth/users');
     }
-
 
     public function newsByCategory($category_id)
     {
@@ -90,6 +114,4 @@ class HomeController extends BaseController
             echo view('not_found');
         }
     }
-
 }
-

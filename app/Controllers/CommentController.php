@@ -30,15 +30,22 @@ class CommentController extends BaseController
         return redirect()->back()->with('success', 'Comment deleted successfully.');
     }
 
-
     public function addComment($newsId)
     {
+        $news = $this->newsModel->find($newsId);
+
+        if (!$news) {
+            return redirect()->to('/404');
+        }
+
         $data = [
             'news_id' => $newsId,
             'user_id' => session('user_id'),
             'content' => $this->request->getPost('content'),
         ];
+
         $this->commentModel->insert($data);
+
         return redirect()->to("news/detail/{$newsId}");
     }
 }

@@ -72,49 +72,6 @@ class NewsController extends Controller
         echo view('inputberita');
     }
 
-
-
-//    public function create()
-//    {
-//        helper('form');
-//        if ($this->request->getMethod() === 'post') {
-//            $validationRules = [
-//                'title' => 'required',
-//                'content' => 'required',
-//                'category_id' => 'required|integer',
-//                'author_id' => 'required|integer',
-//                'created_at' => 'valid_date[Y-m-d]',
-//                'updated_at' => 'valid_date[Y-m-d]',
-//            ];
-//
-//            if ($this->validate($validationRules)) {
-//                // Data valid, simpan ke database
-//                $newsModel = new NewsModel();
-//
-//                $data = [
-//                    'title' => $this->request->getPost('title'),
-//                    'content' => $this->request->getPost('content'),
-//                    'category_id' => $this->request->getPost('category_id'),
-//                    'author_id' => $this->request->getPost('author_id'),
-//                    'created_at' => $this->request->getPost('created_at'),
-//                    'updated_at' => $this->request->getPost('updated_at'),
-//                ];
-//
-//                $newsModel->insert($data);
-//
-//                // Redirect ke halaman tertentu setelah berhasil menyimpan
-//                return redirect()->to('/');
-//            } else {
-//                // Data tidak valid, tampilkan pesan error
-//                return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
-//            }
-//        }
-//
-//        echo view('layout/header');
-//        echo view('layout/navbar');
-//        echo view('inputberita');
-//    }
-
     public function update($id)
     {
         $model = new NewsModel();
@@ -151,7 +108,7 @@ class NewsController extends Controller
 
             $model->update($id, $data);
 
-            return redirect()->to('/manajement');
+            return redirect()->to('/auth/manajement');
         }
 
         // Fetch the article details for the update form

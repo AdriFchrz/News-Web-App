@@ -7,11 +7,9 @@ use CodeIgniter\Router\RouteCollection;
  */
 //view news
 $routes->get('/', 'HomeController::index');
-$routes->get('/manajement', 'HomeController::indexAuthor');
 $routes->post('/search', 'HomeController::search');
 // Comment
-//$routes->get('comment/show/(:num)', 'CommentController::showComments/$1');
-$routes->post('comment/add/(:num)', 'CommentController::addComment/$1');
+   
 $routes->get('comment/delete/(:num)', 'CommentController::deleteComment/$1');
 // News
 $routes->group('news', function ($routes)
@@ -19,7 +17,6 @@ $routes->group('news', function ($routes)
     $routes->get('detail/(:num)', 'NewsController::detail/$1');
     $routes->get('by_category/(:num)', 'HomeController::newsByCategory/$1');
     $routes->get('category/(:num)', 'NewsController::showByCategory/$1');
-
 });
 
 //auth
@@ -31,6 +28,7 @@ $routes->group('auth', function ($routes) {
     $routes->post('delete/(:num)', 'NewsController::delete/$1');
     $routes->get('login', 'AuthController::login');
     $routes->post('login', 'AuthController::login');
+    $routes->get('manajement', 'HomeController::indexAuthor');
     $routes->get('register', 'AuthController::register');
     $routes->post('register', 'AuthController::register');
     $routes->get('logout', 'AuthController::logout');

@@ -1,4 +1,3 @@
-<!-- app/Views/auth/login.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +8,8 @@
 </head>
 <body>
 <div class="container mt-5">
-    <a href="/" class="btn btn-info">Ke Beranda</a>
     <div class="card mx-auto" style="max-width: 400px;">
+        <a href="/" class="btn btn-info">Kembali ke Halaman Utama</a>
         <div class="card-header">
             <h5 class="card-title">Login</h5>
         </div>
