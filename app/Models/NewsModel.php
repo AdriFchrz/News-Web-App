@@ -37,6 +37,23 @@ class NewsModel extends Model
     }
 
 
+//    public function getNewsWithAuthorAndCategory($id = null)
+//    {
+//        return $this->select('news.*, users.username as author, categories.name as category_name')
+//            ->join('users', 'users.id = news.author_id')
+//            ->join('categories', 'categories.id = news.category_id')
+//            ->where('news.id', $id)
+//            ->first();
+//    }
+
+    public function getNewsId($id)
+    {
+        $news = $this->find($id);
+
+        return ($news) ? $news['id'] : null;
+    }
+
+
     public function getNewsWithAuthorAndCategory($id = null)
     {
         return $this->join('users', 'users.id = news.author_id')
