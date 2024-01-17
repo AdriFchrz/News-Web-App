@@ -21,6 +21,8 @@
                 <option value="3" <?= $article['category_id'] == 3 ? 'selected' : '' ?>>Otomotif</option>
                 <option value="4" <?= $article['category_id'] == 4 ? 'selected' : '' ?>>Kesehatan</option>
                 <option value="5" <?= $article['category_id'] == 5 ? 'selected' : '' ?>>Keuangan</option>
+                <option value="6" <?= $article['category_id'] == 6 ? 'selected' : '' ?>>Bisnis</option>
+                <option value="7" <?= $article['category_id'] == 7 ? 'selected' : '' ?>>Politik</option>
             </select>
         </div>
         <div class="mb-3">

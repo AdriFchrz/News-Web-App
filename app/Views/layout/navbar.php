@@ -1,7 +1,8 @@
 <?php $role = session('role'); ?>
+
 <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary mb-3">
     <div class="container container-fluid">
-        <a class="navbar-brand" href="/">News Media</a>
+        <a class="navbar-brand" id="font-navbar" href="/">News Media</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -20,6 +21,8 @@
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/3') ?>">Otomotif</a></li>
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/4') ?>">Kesehatan</a></li>
                         <li><a class="dropdown-item" href="<?= site_url('news/by_category/5') ?>">Keuangan</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('news/by_category/6') ?>">Bisnis</a></li>
+                        <li><a class="dropdown-item" href="<?= site_url('news/by_category/7') ?>">Politik</a></li>
                     </ul>
                 </li>
                 <?php if ($role == 'author'): ?>
@@ -34,8 +37,8 @@
                 <?php endif; ?>
             </ul>
             <form class="d-flex" action="<?= site_url('search') ?>" method="post" role="search">
-                <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <input class="form-control me-2" id="search" type="search" name="search" placeholder="Cari Berita" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">GO</button>
             </form>
         </div>
     </div>

@@ -21,8 +21,8 @@
                         <!-- Tambahkan placeholder gambar default jika tidak ada gambar -->
                         <img class="card-img-top" src="<?= base_url('assets/placeholder.jpg') ?>" alt="Card image cap">
                     <?php endif; ?>
-                    <div class="card-body">
-
+                    <div class="card-body m-3">
+                            
                             <h5 class="card-title"><?= $article['title'] ?></h5>
 
                         <p class="card-text"><?= substr($article['content'], 0, 150) ?>...</p>
